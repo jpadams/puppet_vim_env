@@ -3,8 +3,8 @@ class puppet_vim_env::bundle ( $homedir ) {
 
   $bundledir = "${homedir}/.vim/bundle"
   
-  if $::is_pe == 'true' {
-    $gem_provider = 'pe_gem'
+  if $::is_pe == true {
+    $gem_provider = 'pe_puppetserver_gem'
     $lint_target  = '/opt/puppet/bin/puppet-lint'
   }
   else {
