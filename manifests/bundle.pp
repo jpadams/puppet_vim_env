@@ -3,7 +3,7 @@ class puppet_vim_env::bundle ( $homedir ) {
 
   $bundledir = "${homedir}/.vim/bundle"
   
-  if $::is_pe == true {
+  if str2bool($::is_pe) == true {
     $gem_provider = 'pe_gem'
     $lint_target  = '/opt/puppet/bin/puppet-lint'
   }
@@ -43,6 +43,7 @@ class puppet_vim_env::bundle ( $homedir ) {
   vcsrepo { "${bundledir}/vim-snipmate":
     source => 'https://github.com/garbas/vim-snipmate.git',
   }
+
 
   vcsrepo { "${bundledir}/tabular":
     source => 'https://github.com/godlygeek/tabular.git',
