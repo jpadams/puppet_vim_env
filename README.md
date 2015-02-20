@@ -23,17 +23,16 @@ Beware, this will clobber your existing `~/.vimrc`!
 
 ### Prerequisites
 
-This module relies on a couple of modules from http://forge.puppetlabs.com.
+This module relies on a couple of modules from http://forge.puppetlabs.com. Which should be pulled in as dependencies by the Puppet Module Tool. If they are not, you can install them yourself.
 
 * For PE:
   - `puppet module install puppetlabs/pe_gem`
 * For any Puppet install including PE:
   - `puppet module install puppetlabs/vcsrepo`
+  - `puppet module install puppetlabs/stdlib`
 
-This module also assumes that your system has `curl` and `rubygems` installed (though it uses the vedored PE gem executable if available).
+This module also assumes that the system you want vim enhancements for has `git`, `curl` and `rubygems` installed (though it uses the vedored PE gem executable if available).
 
 ### Installation & Setup
 
-To begin using this module, clone this repo into your modulepath and `include puppet_vim_env`.
-
-
+To begin using this module, install it on your master and classify nodes with it or `puppet module install jpadams-puppet_vim_env` to an agent machine and `puppet apply -e 'include puppet_vim_env'`.
