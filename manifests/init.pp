@@ -10,7 +10,7 @@ class puppet_vim_env (
 
   class { 'puppet_vim_env::pathogen':
     homedir => $homedir,
-  }
+  } ->
 
   class { 'puppet_vim_env::bundle':
     homedir => $homedir,
