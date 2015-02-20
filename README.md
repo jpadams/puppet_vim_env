@@ -31,7 +31,7 @@ This module relies on a couple of modules from http://forge.puppetlabs.com. Whic
   - `puppet module install puppetlabs/vcsrepo`
   - `puppet module install puppetlabs/stdlib`
 
-This module also assumes that the system you want vim enhancements for has `git`, `curl` and `rubygems` installed (though it uses the vedored PE gem executable if available).
+This module also assumes that the system you want vim enhancements for has `git`, `curl` and `rubygems` installed (though it uses the vendored PE gem executable if available).
 
 ### Installation & Setup
 
