@@ -3,18 +3,13 @@ class puppet_vim_env::bundle ( $homedir ) {
 
   $bundledir = "${homedir}/.vim/bundle"
 
-  # for older facter versions that only had string values,
-  # ensure we have a boolean
-  if is_string($::is_pe) {
-    $is_pe_fact = str2bool($::is_pe)
+  if $aio_agent_version {
+    $gem_provider = 'puppet_gem'
+    $lint_target  = '/opt/puppetlabs/puppet/bin/puppet-lint'
   }
-  else {
-    $is_pe_fact = $::is_pe
-  }
-
-  if $is_pe_fact == true {
+  elsif str2bool($is_pe) {
     $gem_provider = 'pe_gem'
-    $lint_target  = '/opt/puppet/bin/puppet-lint'
+    $lint_target  = '/usr/bin/puppet-lint'
   }
   else {
     $gem_provider = 'gem'
