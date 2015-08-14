@@ -13,7 +13,7 @@ class puppet_vim_env::bundle ( $homedir ) {
   }
 
   if $is_pe_fact == true {
-    $gem_provider = 'pe_gem'
+    $gem_provider = 'puppet_gem'
     $lint_target  = '/opt/puppet/bin/puppet-lint'
   }
   else {
