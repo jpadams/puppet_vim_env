@@ -73,7 +73,6 @@
   "project_page": "https://github.com/jpadams/puppet_vim_env",
   "issues_url": "https://github.com/jpadams/puppet_vim_env/issues",
   "dependencies": [
-    { "name": "puppetlabs/pe_gem", "version_requirement": ">= 0.0.1" },
     { "name": "puppetlabs/vcsrepo", "version_requirement": ">= 1.0.0" },
     { "name": "puppetlabs/stdlib", "version_requirement": ">= 2.2.0" }
   ]
