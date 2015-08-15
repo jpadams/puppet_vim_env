@@ -1,5 +1,5 @@
 # pathogen.pp
-class puppet_vim_env::pathogen ( $homedir) {
+class puppet_vim_env::pathogen ($homedir, $puppet_lint_opts) {
 
   $autoloaddir = "${homedir}/.vim/autoload"
 
@@ -18,11 +18,10 @@ class puppet_vim_env::pathogen ( $homedir) {
     source => 'puppet:///modules/puppet_vim_env/vimrc',
   }
 
-  if $puppet_vim_env::puppetlint_opts != '' {
-    file_line { 'add puppet-lint options to vimrc':
-      path => "${homedir}/.vimrc",
-      line => "let g:syntastic_puppet_puppetlint_args=\'${puppet_vim_env::puppetlint_opts}\'",
-    }
+  file_line { 'manage puppet-lint options in vimrc':
+    path  => "${homedir}/.vimrc",
+    line  => "let g:syntastic_puppet_puppetlint_args=\'${puppetlint_opts}\'",
+    match => '^let\ g\:syntastic_puppet_puppetlint_args\=',
   }
 
 }

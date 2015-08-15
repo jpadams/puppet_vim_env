@@ -1,68 +1,44 @@
 # bundle.pp
-class puppet_vim_env::bundle ( $homedir ) {
+class puppet_vim_env::bundle ($homedir) {
 
   $bundledir = "${homedir}/.vim/bundle"
 
-  if $aio_agent_version {
-    $gem_provider = 'puppet_gem'
-    $lint_target  = '/opt/puppetlabs/puppet/bin/puppet-lint'
-  }
-  elsif str2bool($is_pe) {
-    $gem_provider = 'pe_gem'
-    $lint_target  = '/usr/bin/puppet-lint'
-  }
-  else {
-    $gem_provider = 'gem'
-    $lint_target  = '/usr/bin/puppet-lint'
+  if ! $aio_agent_version {
+    fail('Only supported with the all-in-one Puppet 4.x puppet-agent')
   }
 
   file { $bundledir:
     ensure  => directory,
-    require => File[ "${homedir}/.vim" ],
+    require => File["${homedir}/.vim"],
   }
 
   package { 'puppet-lint':
     ensure      => installed,
-    provider    => $gem_provider,
+    provider    => 'puppet_gem'
   }
 
   file { '/usr/local/bin/puppet-lint':
     ensure => link,
-    target => $lint_target,
+    target => '/opt/puppetlabs/puppet/bin/puppet-lint',
   }
 
-  Vcsrepo {
-    ensure   => present,
-    provider => 'git',
+  $git_clones = {
+    'vim-addon-mw-utils' => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
+    'tlib_vim'           => 'https://github.com/tomtom/tlib_vim.git',
+    'vim-snipmate'       => 'https://github.com/garbas/vim-snipmate.git',
+    'tabular'            => 'https://github.com/godlygeek/tabular.git',
+    'syntastic'          => 'https://github.com/scrooloose/syntastic.git',
+    'vim-puppet'         => 'https://github.com/rodjek/vim-puppet.git',
+    'vim-snippets'       => 'https://github.com/honza/vim-snippets.git',
   }
 
-  vcsrepo { "${bundledir}/vim-addon-mw-utils":
-    source => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
-  }
-
-  vcsrepo { "${bundledir}/tlib_vim":
-    source => 'https://github.com/tomtom/tlib_vim.git',
-  }
-
-  vcsrepo { "${bundledir}/vim-snipmate":
-    source => 'https://github.com/garbas/vim-snipmate.git',
-  }
-
-
-  vcsrepo { "${bundledir}/tabular":
-    source => 'https://github.com/godlygeek/tabular.git',
-  }
-
-  vcsrepo { "${bundledir}/syntastic":
-    source => 'https://github.com/scrooloose/syntastic.git',
-  }
-
-  vcsrepo { "${bundledir}/vim-puppet":
-    source => 'https://github.com/rodjek/vim-puppet.git',
-  }
-
-  vcsrepo { "${bundledir}/vim-snippets":
-    source => 'https://github.com/honza/vim-snippets.git',
+  $git_clones.each |$repo, $source| {
+    vcsrepo { "${bundledir}/${repo}":
+      ensure   => present,
+      source   => $source,
+      provider => 'git',
+      require  => File[$bundledir],
+    }
   }
 
 }
