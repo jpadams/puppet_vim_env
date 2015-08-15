@@ -58,14 +58,15 @@
     {
       "operatingsystem": "Darwin",
       "operatingsystemrelease": [
-        "10.9"
+        "10.9",
+        "10.10"
       ]
     }
   ],
   "tags": ["puppet","vim", "syntax", "lint", "parser", "validate", "color", "highlight", "editor", "snippets"],
   "requirements": [],
   "name": "jpadams-puppet_vim_env",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "source": "git://github.com/jpadams/puppet_vim_env",
   "author": "Jeremy Adams",
   "license": "Apache-2.0",
@@ -73,7 +74,7 @@
   "project_page": "https://github.com/jpadams/puppet_vim_env",
   "issues_url": "https://github.com/jpadams/puppet_vim_env/issues",
   "dependencies": [
-    { "name": "puppetlabs/vcsrepo", "version_requirement": ">= 1.0.0" },
-    { "name": "puppetlabs/stdlib", "version_requirement": ">= 2.2.0" }
+    { "name": "puppetlabs/vcsrepo", "version_requirement": ">= 1.3.1" },
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.8.0" }
   ]
 }

@@ -23,15 +23,13 @@ Beware, this will clobber your existing `~/.vimrc`!
 
 ### Prerequisites
 
-This module relies on a couple of modules from http://forge.puppetlabs.com. Which should be pulled in as dependencies by the Puppet Module Tool. If they are not, you can install them yourself.
+This module has been rewritten to assume the all-in-one, unified puppet-agent for PE and Open Source Puppet. It uses the Puppet 4 parser.
+This module relies on a couple of modules from http://forge.puppetlabs.com. Which should be pulled in as dependencies by the Puppet Module Tool. If they are not because you're installing from github, you can install them yourself.
 
-* For PE:
-  - `puppet module install puppetlabs/pe_gem`
-* For any Puppet install including PE:
   - `puppet module install puppetlabs/vcsrepo`
   - `puppet module install puppetlabs/stdlib`
 
-This module also assumes that the system you want vim enhancements for has `git`, `curl` and `rubygems` installed (though it uses the vendored PE gem executable if available).
+This module also assumes that the system you want vim enhancements for has `git` and `curl` installed.
 
 ### Installation & Setup
 
