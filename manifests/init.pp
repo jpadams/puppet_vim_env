@@ -4,6 +4,8 @@ class puppet_vim_env (
   $puppetlint_opts = '--no-documentation-check --no-80chars-check --no-autoloader_layout-check'
 ) {
 
+  include puppet_vim_env::lint
+
   file { "${homedir}/.vim":
     ensure => directory,
   }

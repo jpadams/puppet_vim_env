@@ -8,16 +8,6 @@ class puppet_vim_env::bundle ($homedir) {
     require => File["${homedir}/.vim"],
   }
 
-  package { 'puppet-lint':
-    ensure      => installed,
-    provider    => 'puppet_gem'
-  }
-
-  file { '/usr/local/bin/puppet-lint':
-    ensure => link,
-    target => '/opt/puppetlabs/puppet/bin/puppet-lint',
-  }
-
   $git_clones = {
     'vim-addon-mw-utils' => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
     'tlib_vim'           => 'https://github.com/tomtom/tlib_vim.git',
