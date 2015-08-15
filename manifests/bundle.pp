@@ -1,10 +1,11 @@
 # bundle.pp
-class puppet_vim_env::bundle ($homedir) {
+class puppet_vim_env::bundle ($homedir, $owner) {
 
   $bundledir = "${homedir}/.vim/bundle"
 
   file { $bundledir:
     ensure  => directory,
+    owner   => $owner,
     require => File["${homedir}/.vim"],
   }
 
@@ -22,6 +23,7 @@ class puppet_vim_env::bundle ($homedir) {
     vcsrepo { "${bundledir}/${repo}":
       ensure   => present,
       source   => $source,
+      user     => $owner,
       provider => 'git',
       require  => File[$bundledir],
     }

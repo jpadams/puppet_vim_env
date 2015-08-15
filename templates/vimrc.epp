@@ -1,0 +1,9 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+set listchars=trail:.
+set list
+set ruler
+colorscheme <%= $puppet_vim_env::pathogen::colorscheme %>
+let g:syntastic_puppet_checkers=['puppet', 'puppetlint']
+let g:syntastic_puppet_puppetlint_args='<%= $puppet_vim_env::pathogen::puppetlint_opts %>'
