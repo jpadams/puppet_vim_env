@@ -1,9 +1,10 @@
 # install.pp
 define puppet_vim_env::install (
-  String $owner           = $::id,
-  String $homedir         = $::homedir,
-  String $colorscheme     = 'solarized',
-  String $puppetlint_opts = @(OPTS/L)
+  String  $owner           = $::id,
+  String  $homedir         = $::homedir,
+  String  $colorscheme     = 'solarized',
+  Boolean $clobber_vimrc   = true,
+  String  $puppetlint_opts = @(OPTS/L)
     --no-documentation-check \
     --no-80chars-check \
     --no-autoloader_layout-check\
@@ -21,6 +22,7 @@ define puppet_vim_env::install (
     owner           => $owner,
     homedir         => $homedir,
     colorscheme     => $colorscheme,
+    clobber_vimrc   => $clobber_vimrc,
     puppetlint_opts => $puppetlint_opts,
   }
 
