@@ -1,7 +1,7 @@
 # pathogen.pp
 define puppet_vim_env::pathogen (
-  String $homedir,
   String $owner,
+  String $homedir,
   String $colorscheme,
   String $puppetlint_opts
 ) {

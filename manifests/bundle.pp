@@ -1,7 +1,7 @@
 # bundle.pp
 define puppet_vim_env::bundle (
-  String $homedir,
-  String $owner
+  String $owner,
+  String $homedir
 ) {
 
   $bundledir = "${homedir}/.vim/bundle"

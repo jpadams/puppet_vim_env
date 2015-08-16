@@ -2,7 +2,7 @@
 
 require 'etc'
 
-Facter.add("homedir") do
+Facter.add(:homedir) do
   setcode do
     user = `whoami`
     Etc.getpwnam(user.chomp).dir
