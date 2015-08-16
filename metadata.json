@@ -63,7 +63,7 @@
       ]
     }
   ],
-  "tags": ["puppet","vim", "syntax", "lint", "parser", "validate", "color", "highlight", "editor", "snippets"],
+  "tags": ["puppet","vim", "syntax", "lint", "parser", "validate", "color", "highlight", "editor", "snippets", "solarized"],
   "requirements": [],
   "name": "jpadams-puppet_vim_env",
   "version": "2.0.0",
