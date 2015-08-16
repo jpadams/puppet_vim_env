@@ -1,6 +1,6 @@
 ### Overview
 
-This module provides defined types to set up a vim envrionment optimized for Puppet development. It uses a solarized color scheme by default.
+Note: This module has been rewritten for Puppet 4 and is not compatible with Puppet 3.x (should work with future parser). This module provides defined types to set up a vim envrionment optimized for Puppet development. It uses a solarized color scheme by default.
 
 It relies on the work done by many, many people and specifically draws upon the following resources:
 

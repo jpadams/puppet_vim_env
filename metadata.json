@@ -64,7 +64,16 @@
     }
   ],
   "tags": ["puppet","vim", "syntax", "lint", "parser", "validate", "color", "highlight", "editor", "snippets", "solarized"],
-  "requirements": [],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 2015.2.0 < 2017.1.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.0.0 < 5.0.0"
+    }
+  ],
   "name": "jpadams-puppet_vim_env",
   "version": "2.0.0",
   "source": "git://github.com/jpadams/puppet_vim_env",
