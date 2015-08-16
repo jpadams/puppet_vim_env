@@ -1,6 +1,6 @@
 ### Overview
 
-This module provides defined types to set up a vim envrionment optimized for Puppet development.
+This module provides defined types to set up a vim envrionment optimized for Puppet development. It uses a solarized color scheme by default.
 
 It relies on the work done by many, many people and specifically draws upon the following resources:
 
