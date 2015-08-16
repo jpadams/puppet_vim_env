@@ -1,9 +1,9 @@
 # pathogen.pp
-class puppet_vim_env::pathogen (
-  $homedir,
-  $owner,
-  $colorscheme,
-  $puppetlint_opts
+define puppet_vim_env::pathogen (
+  String $homedir,
+  String $owner,
+  String $colorscheme,
+  String $puppetlint_opts
 ) {
 
   $autoloaddir = "${homedir}/.vim/autoload"
@@ -20,10 +20,15 @@ class puppet_vim_env::pathogen (
     source => 'puppet:///modules/puppet_vim_env/pathogen.vim',
   }
 
+  $epp_params = {
+    'colorscheme'     => $colorscheme,
+    'puppetlint_opts' => $puppetlint_opts,
+  }
+
   file { "${homedir}/.vimrc":
     ensure  => file,
     owner   => $owner,
-    content => epp('puppet_vim_env/vimrc.epp'),
+    content => epp('puppet_vim_env/vimrc.epp', $epp_params),
   }
 
 }

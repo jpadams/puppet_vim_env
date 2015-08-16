@@ -1,5 +1,8 @@
 # bundle.pp
-class puppet_vim_env::bundle ($homedir, $owner) {
+define puppet_vim_env::bundle (
+  String $homedir,
+  String $owner
+) {
 
   $bundledir = "${homedir}/.vim/bundle"
 
@@ -10,13 +13,14 @@ class puppet_vim_env::bundle ($homedir, $owner) {
   }
 
   $git_clones = {
-    'vim-addon-mw-utils' => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
-    'tlib_vim'           => 'https://github.com/tomtom/tlib_vim.git',
-    'vim-snipmate'       => 'https://github.com/garbas/vim-snipmate.git',
-    'tabular'            => 'https://github.com/godlygeek/tabular.git',
-    'syntastic'          => 'https://github.com/scrooloose/syntastic.git',
-    'vim-puppet'         => 'https://github.com/rodjek/vim-puppet.git',
-    'vim-snippets'       => 'https://github.com/honza/vim-snippets.git',
+    'tabular'              => 'https://github.com/godlygeek/tabular.git',
+    'tlib_vim'             => 'https://github.com/tomtom/tlib_vim.git',
+    'syntastic'            => 'https://github.com/scrooloose/syntastic.git',
+    'vim-puppet'           => 'https://github.com/rodjek/vim-puppet.git',
+    'vim-snipmate'         => 'https://github.com/garbas/vim-snipmate.git',
+    'vim-snippets'         => 'https://github.com/honza/vim-snippets.git',
+    'vim-addon-mw-utils'   => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
+    'vim-colors-solarized' => 'https://github.com/altercation/vim-colors-solarized.git',
   }
 
   $git_clones.each |$repo, $source| {
