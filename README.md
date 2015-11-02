@@ -2,6 +2,9 @@
 
 Note: This module has been rewritten for Puppet 4 and is not compatible with Puppet 3.x (should work with future parser). This module provides defined types to set up a vim envrionment optimized for Puppet development. It uses a solarized color scheme by default.
 
+ - `<F2>` is mapped to align `=>` in a param block via Tabular
+ - `,c<space>` to comment or uncomment via Nerdcommenter
+
 It relies on the work done by many, many people and specifically draws upon the following resources:
 
 https://github.com/MarcWeber/vim-addon-mw-utils
@@ -19,6 +22,8 @@ https://github.com/rodjek/vim-puppet
 https://github.com/honza/vim-snippets
 
 https://github.com/altercation/vim-colors-solarized
+
+https://github.com/scrooloose/nerdcommenter
 
 It uses a custom fact, `homedir`, to decide where to put the .vimrc file and .vim directory.
 Beware, this will clobber your existing `~/.vimrc`!
