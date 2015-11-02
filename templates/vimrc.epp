@@ -13,3 +13,6 @@ set list
 set ruler
 let g:syntastic_puppet_checkers=['puppet', 'puppetlint']
 let g:syntastic_puppet_puppetlint_args='<%= $puppetlint_opts %>'
+" F2 aligns arrows im a param
+" block of a resource using Tabular.
+map <F2> :Tab /=><CR>

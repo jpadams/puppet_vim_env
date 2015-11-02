@@ -19,6 +19,7 @@ define puppet_vim_env::bundle (
     'vim-puppet'           => 'https://github.com/rodjek/vim-puppet.git',
     'vim-snipmate'         => 'https://github.com/garbas/vim-snipmate.git',
     'vim-snippets'         => 'https://github.com/honza/vim-snippets.git',
+    'nerdcommenter'        => 'https://github.com/scrooloose/nerdcommenter.git',
     'vim-addon-mw-utils'   => 'https://github.com/MarcWeber/vim-addon-mw-utils.git',
     'vim-colors-solarized' => 'https://github.com/altercation/vim-colors-solarized.git',
   }
