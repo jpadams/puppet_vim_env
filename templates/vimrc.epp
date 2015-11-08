@@ -8,6 +8,7 @@ syntax enable
 set background=dark
 colorscheme <%= $colorscheme %>
 filetype plugin indent on
+set backspace=indent,eol,start
 set listchars=trail:.
 set list
 set ruler
