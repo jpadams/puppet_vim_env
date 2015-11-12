@@ -4,6 +4,8 @@ define puppet_vim_env::pathogen (
   String  $homedir,
   String  $colorscheme,
   Boolean $clobber_vimrc,
+  Boolean $remap_esc_jk,
+  String  $raw_vimrc_extras,
   String  $puppetlint_opts
 ) {
 
@@ -23,8 +25,10 @@ define puppet_vim_env::pathogen (
 
   if $clobber_vimrc {
     $epp_params = {
-      'colorscheme'     => $colorscheme,
-      'puppetlint_opts' => $puppetlint_opts,
+      'colorscheme'      => $colorscheme,
+      'remap_esc_jk'     => $remap_esc_jk,
+      'raw_vimrc_extras' => $raw_vimrc_extras,
+      'puppetlint_opts'  => $puppetlint_opts,
     }
 
     file { "${homedir}/.vimrc":
