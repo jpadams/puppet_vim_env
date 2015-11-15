@@ -1,7 +1,8 @@
 # bundle.pp
 define puppet_vim_env::bundle (
-  String $owner,
-  String $homedir
+  String  $owner,
+  String  $homedir,
+  Boolean $use_vim_airline,
 ) {
 
   $bundledir = "${homedir}/.vim/bundle"
@@ -24,7 +25,10 @@ define puppet_vim_env::bundle (
     'vim-colors-solarized' => 'https://github.com/altercation/vim-colors-solarized.git',
   }
 
-  $git_clones.each |$repo, $source| {
+  if $use_vim_airline { $airline = { 'vim-airline' => 'https://github.com/bling/vim-airline.git' } }
+  else { $airline = {} }
+
+  merge($git_clones, $airline).each |$repo, $source| {
     vcsrepo { "${bundledir}/${repo}":
       ensure   => present,
       source   => $source,

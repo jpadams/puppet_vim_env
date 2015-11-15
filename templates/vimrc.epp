@@ -2,6 +2,7 @@
       Boolean $remap_esc_jk,
       String  $raw_vimrc_extras,
       String  $puppetlint_opts,
+      Boolean $use_vim_airline,
 | -%>
 execute pathogen#infect()
 let g:solarized_termcolors=256
@@ -22,8 +23,12 @@ map <F2> :Tab /=><CR>
 " Sets <Leader> to <comma> so you can
 " comment/uncomment with <comma>c<space>
 let mapleader=','
+<% if $use_vim_airline { -%>
+<%= "\" Enable vim-airline status bar." %>
+<%= 'set laststatus=2' %>
+<% } -%>
 <% if $remap_esc_jk { -%>
-<%= "\" Uses \'jk\' in place of <esc>. Very handy!\'" %>
+<%= "\" Uses \'jk\' in place of <esc>. Very handy!" %>
 <%= 'inoremap jk <esc>' %>
 <% } -%>
 <% if $raw_vimrc_extras != '' { -%>

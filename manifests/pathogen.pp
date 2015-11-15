@@ -5,6 +5,7 @@ define puppet_vim_env::pathogen (
   String  $colorscheme,
   Boolean $clobber_vimrc,
   Boolean $remap_esc_jk,
+  Boolean $use_vim_airline,
   String  $raw_vimrc_extras,
   String  $puppetlint_opts
 ) {
@@ -27,6 +28,7 @@ define puppet_vim_env::pathogen (
     $epp_params = {
       'colorscheme'      => $colorscheme,
       'remap_esc_jk'     => $remap_esc_jk,
+      'use_vim_airline'  => $use_vim_airline,
       'raw_vimrc_extras' => $raw_vimrc_extras,
       'puppetlint_opts'  => $puppetlint_opts,
     }
