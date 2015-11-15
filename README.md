@@ -45,4 +45,4 @@ To begin using this module, install it in your master's codedir and write a prof
 
 For convenience or a quick test, there is a default config class in init.pp. So if you classify your machine with `puppet_vim_env` you'll get that default.
 
-Alternatively, `puppet module install jpadams-puppet_vim_env` to an agent machine and `puppet apply -e 'puppet_vim_env` with the modulepath set if necessary.
+Alternatively, `puppet module install jpadams-puppet_vim_env` to an agent machine and `puppet apply -e 'include puppet_vim_env'` with the modulepath set if necessary.
