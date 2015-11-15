@@ -13,6 +13,7 @@ filetype plugin indent on
 set backspace=indent,eol,start
 set listchars=trail:.
 set list
+set title
 set ruler
 let g:syntastic_puppet_checkers=['puppet', 'puppetlint']
 let g:syntastic_puppet_puppetlint_args='<%= $puppetlint_opts %>'
