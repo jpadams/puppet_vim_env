@@ -6,6 +6,7 @@ define puppet_vim_env::install (
   Boolean $clobber_vimrc    = true,
   Boolean $remap_esc_jk     = false,
   String  $raw_vimrc_extras = '',
+  String  $parser_opts      = '--app_management',
   String  $puppetlint_opts  = @(OPTS/L)
     --no-documentation-check \
     --no-80chars-check \
