@@ -4,6 +4,8 @@ Note: This module has been rewritten for Puppet 4 and is not compatible with Pup
 
  - `<F2>` is mapped to align `=>` in a param block via Tabular
  - `,c<space>` to comment or uncomment via Nerdcommenter
+ - provide args to `puppet parser validate` via Syntastic (added `--app_management`)
+ - option to use `jk` instead of `<ESC>` from http://dougblack.io/words/a-good-vimrc.html
 
 It relies on the work done by many, many people and specifically draws upon the following resources:
 

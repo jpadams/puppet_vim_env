@@ -75,7 +75,7 @@
     }
   ],
   "name": "jpadams-puppet_vim_env",
-  "version": "2.3.0",
+  "version": "2.4.1",
   "source": "git://github.com/jpadams/puppet_vim_env",
   "author": "Jeremy Adams",
   "license": "Apache-2.0",
